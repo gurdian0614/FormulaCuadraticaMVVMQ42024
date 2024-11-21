@@ -2,11 +2,28 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FormulaCuadraticaMVVMQ42024.Views.FormulaCuadraticaView"
+             xmlns:viewModel="clr-namespace:FormulaCuadraticaMVVMQ42024.ViewModels"
+             x:DataType="viewModel:FormulaCuadraticaViewModel"
              Title="FormulaCuadraticaView">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="5">
+            <Label Text="Ingrese valor de a:" />
+            <Entry Text="{Binding A}" Keyboard="Numeric" />
+
+            <Label Text="Ingrese valor de b:" />
+            <Entry Text="{Binding B}" Keyboard="Numeric" />
+
+            <Label Text="Ingrese el valor de c:" />
+            <Entry Text="{Binding C}" Keyboard="Numeric" />
+
+            <Label Text="X1:" />
+            <Entry Text="{Binding X1}" IsReadOnly="True" />
+
+            <Label Text="X2:" />
+            <Entry Text="{Binding X2}" IsReadOnly="True" />
+
+            <Button Text="Calcular" Command="{Binding CalcularCommand}" Background="Green" />
+            <Button Text="Limpiar" Command="{Binding LimpiarCommand}" Background="Red" />
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
